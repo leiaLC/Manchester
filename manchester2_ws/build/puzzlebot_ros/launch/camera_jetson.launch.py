@@ -1,1 +1,0 @@
-/home/leialc/manchester2_ws/puzzlebot_ros/launch/camera_jetson.launch.py

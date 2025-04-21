@@ -1,1 +1,0 @@
-/home/leialc/manchester2_ws/build/puzzlebot_ros/launch/gazebo_box_world.launch.py

@@ -1,7 +1,0 @@
-/usr/bin/ld: /usr/local/lib/libpython3.10.a(ast_opt.o): warning: relocation against `PyExc_RecursionError' in read-only section `.text.unlikely'
-/usr/bin/ld: /usr/local/lib/libpython3.10.a(abstract.o): relocation R_X86_64_PC32 against symbol `_Py_NotImplementedStruct' can not be used when making a shared object; recompile with -fPIC
-/usr/bin/ld: final link failed: bad value
-collect2: error: ld returned 1 exit status
-gmake[2]: *** [CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/build.make:499: rosidl_generator_py/ros_gz_interfaces/libros_gz_interfaces__rosidl_generator_py.so] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:475: CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

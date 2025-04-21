@@ -1,9 +1,0 @@
-[console_scripts]
-controller = puzzlebot.controller:main
-path_publisher = puzzlebot.path_publisher:main
-path_subscriber = puzzlebot.path_subscriber:main
-polygon_IMU = puzzlebot.polygon_IMU:main
-polygon_publisher = puzzlebot.polygon_publisher:main
-trayectory_2m = puzzlebot.trayectory_2m:main
-trayectory_try = puzzlebot.trayectory_try:main
-

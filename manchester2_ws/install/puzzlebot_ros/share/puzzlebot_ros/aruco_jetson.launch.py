@@ -1,1 +1,0 @@
-/home/leialc/manchester2_ws/build/puzzlebot_ros/launch/aruco_jetson.launch.py
