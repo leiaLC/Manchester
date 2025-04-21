@@ -1,0 +1,61 @@
+[0.000000] (-) TimerEvent: {}
+[0.000415] (-) JobUnselected: {'identifier': 'puzzlebot'}
+[0.000439] (-) JobUnselected: {'identifier': 'ros_gz'}
+[0.000453] (-) JobUnselected: {'identifier': 'ros_gz_bridge'}
+[0.000465] (-) JobUnselected: {'identifier': 'ros_gz_image'}
+[0.000476] (-) JobUnselected: {'identifier': 'ros_gz_interfaces'}
+[0.000488] (-) JobUnselected: {'identifier': 'ros_gz_sim'}
+[0.000499] (-) JobUnselected: {'identifier': 'ros_gz_sim_demos'}
+[0.000510] (-) JobUnselected: {'identifier': 'test_ros_gz_bridge'}
+[0.000523] (puzzlebot_ros) JobQueued: {'identifier': 'puzzlebot_ros', 'dependencies': OrderedDict()}
+[0.000537] (puzzlebot_ros) JobStarted: {'identifier': 'puzzlebot_ros'}
+[0.099895] (-) TimerEvent: {}
+[0.200147] (-) TimerEvent: {}
+[0.300384] (-) TimerEvent: {}
+[0.400613] (-) TimerEvent: {}
+[0.500874] (-) TimerEvent: {}
+[0.524079] (puzzlebot_ros) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/leialc/manchester2_ws/build/puzzlebot_ros/build', '--no-deps', 'symlink_data'], 'cwd': '/home/leialc/manchester2_ws/build/puzzlebot_ros', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'leialc', 'LC_TIME': 'es_MX.UTF-8', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/leialc/uros_ws/install/micro_ros_agent/lib:/home/leialc/uros_ws/install/micro_ros_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/leialc', 'OLDPWD': '/home/leialc', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'es_MX.UTF-8', 'SYSTEMD_EXEC_PID': '2280', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/leialc/uros_ws/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'leialc', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'leialc', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/home/leialc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/leiaLC:@/tmp/.ICE-unix/2002,unix/leiaLC:/tmp/.ICE-unix/2002', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'es_MX.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/99e4f389_0e0d_4800_8c8c_4c71a6e5604d', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'es_MX.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.104', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/leialc/uros_ws/install/micro_ros_setup:/home/leialc/uros_ws/install/micro_ros_agent:/home/leialc/uros_ws/install/micro_ros_msgs:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_MX.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_MX.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'es_MX.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/leialc/manchester2_ws/build/puzzlebot_ros', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/leialc/manchester2_ws/build/puzzlebot_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/leialc/manchester2_ws/install/puzzlebot_ros/lib/python3.10/site-packages:/home/leialc/uros_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_MX.UTF-8', 'LC_PAPER': 'es_MX.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/leialc/uros_ws/install/micro_ros_setup:/home/leialc/uros_ws/install/micro_ros_agent:/home/leialc/uros_ws/install/micro_ros_msgs'}, 'shell': False}
+[0.600994] (-) TimerEvent: {}
+[0.701190] (-) TimerEvent: {}
+[0.744265] (puzzlebot_ros) StdoutLine: {'line': b'running develop\n'}
+[0.801287] (-) TimerEvent: {}
+[0.901526] (-) TimerEvent: {}
+[0.904486] (puzzlebot_ros) StdoutLine: {'line': b'running egg_info\n'}
+[0.904916] (puzzlebot_ros) StdoutLine: {'line': b'creating puzzlebot_ros.egg-info\n'}
+[0.905011] (puzzlebot_ros) StdoutLine: {'line': b'writing puzzlebot_ros.egg-info/PKG-INFO\n'}
+[0.905065] (puzzlebot_ros) StdoutLine: {'line': b'writing dependency_links to puzzlebot_ros.egg-info/dependency_links.txt\n'}
+[0.905129] (puzzlebot_ros) StdoutLine: {'line': b'writing entry points to puzzlebot_ros.egg-info/entry_points.txt\n'}
+[0.905194] (puzzlebot_ros) StdoutLine: {'line': b'writing requirements to puzzlebot_ros.egg-info/requires.txt\n'}
+[0.905257] (puzzlebot_ros) StdoutLine: {'line': b'writing top-level names to puzzlebot_ros.egg-info/top_level.txt\n'}
+[0.905412] (puzzlebot_ros) StdoutLine: {'line': b"writing manifest file 'puzzlebot_ros.egg-info/SOURCES.txt'\n"}
+[0.906761] (puzzlebot_ros) StdoutLine: {'line': b"reading manifest file 'puzzlebot_ros.egg-info/SOURCES.txt'\n"}
+[0.907272] (puzzlebot_ros) StdoutLine: {'line': b"writing manifest file 'puzzlebot_ros.egg-info/SOURCES.txt'\n"}
+[0.908346] (puzzlebot_ros) StdoutLine: {'line': b'running build_ext\n'}
+[0.908508] (puzzlebot_ros) StdoutLine: {'line': b'Creating /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/python3.10/site-packages/puzzlebot-ros.egg-link (link to .)\n'}
+[0.909204] (puzzlebot_ros) StdoutLine: {'line': b'Installing dead_reckoning script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros\n'}
+[0.909350] (puzzlebot_ros) StdoutLine: {'line': b'Installing distance_control script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros\n'}
+[0.909459] (puzzlebot_ros) StdoutLine: {'line': b'Installing goto_point script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros\n'}
+[0.909535] (puzzlebot_ros) StdoutLine: {'line': b'Installing kalman script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros\n'}
+[0.909614] (puzzlebot_ros) StdoutLine: {'line': b'Installing pwm_control script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros\n'}
+[0.909707] (puzzlebot_ros) StdoutLine: {'line': b'Installing velocity_control script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros\n'}
+[0.909905] (puzzlebot_ros) StdoutLine: {'line': b'\n'}
+[0.909962] (puzzlebot_ros) StdoutLine: {'line': b'Installed /home/leialc/manchester2_ws/build/puzzlebot_ros\n'}
+[0.910036] (puzzlebot_ros) StdoutLine: {'line': b'running symlink_data\n'}
+[0.910119] (puzzlebot_ros) StdoutLine: {'line': b'creating /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index\n'}
+[0.910174] (puzzlebot_ros) StdoutLine: {'line': b'creating /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index/resource_index\n'}
+[0.910227] (puzzlebot_ros) StdoutLine: {'line': b'creating /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index/resource_index/packages\n'}
+[0.910316] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/resource/puzzlebot_ros -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index/resource_index/packages\n'}
+[0.910415] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/package.xml -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.910491] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/micro_ros_agent.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.910591] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/goto_deadreckoning.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.910679] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/gazebo_box_world.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.910730] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/aruco_gazebo.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.910806] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/goto_kalman.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.910913] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/gazebo_aruco_world.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.910969] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/gazebo_empty_world.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.911016] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/aruco_jetson.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.911082] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/camera_jetson.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.911128] (puzzlebot_ros) StdoutLine: {'line': b'symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/aruco_raspberry.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros\n'}
+[0.937379] (puzzlebot_ros) CommandEnded: {'returncode': 0}
+[0.953956] (puzzlebot_ros) JobEnded: {'identifier': 'puzzlebot_ros', 'rc': 0}
+[0.954409] (-) EventReactorShutdown: {}

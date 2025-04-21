@@ -1,0 +1,8 @@
+[console_scripts]
+dead_reckoning = puzzlebot_ros.dead_reckoning:main
+distance_control = puzzlebot_ros.distance_control:main
+goto_point = puzzlebot_ros.goto_point:main
+kalman = puzzlebot_ros.kalman:main
+pwm_control = puzzlebot_ros.pwm_control:main
+velocity_control = puzzlebot_ros.velocity_control:main
+

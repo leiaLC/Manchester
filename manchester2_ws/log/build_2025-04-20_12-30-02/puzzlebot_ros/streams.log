@@ -1,0 +1,39 @@
+[0.524s] Invoking command in '/home/leialc/manchester2_ws/build/puzzlebot_ros': PYTHONPATH=/home/leialc/manchester2_ws/build/puzzlebot_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/leialc/manchester2_ws/install/puzzlebot_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/leialc/manchester2_ws/build/puzzlebot_ros/build --no-deps symlink_data
+[0.744s] running develop
+[0.904s] running egg_info
+[0.904s] creating puzzlebot_ros.egg-info
+[0.905s] writing puzzlebot_ros.egg-info/PKG-INFO
+[0.905s] writing dependency_links to puzzlebot_ros.egg-info/dependency_links.txt
+[0.905s] writing entry points to puzzlebot_ros.egg-info/entry_points.txt
+[0.905s] writing requirements to puzzlebot_ros.egg-info/requires.txt
+[0.905s] writing top-level names to puzzlebot_ros.egg-info/top_level.txt
+[0.905s] writing manifest file 'puzzlebot_ros.egg-info/SOURCES.txt'
+[0.906s] reading manifest file 'puzzlebot_ros.egg-info/SOURCES.txt'
+[0.907s] writing manifest file 'puzzlebot_ros.egg-info/SOURCES.txt'
+[0.908s] running build_ext
+[0.908s] Creating /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/python3.10/site-packages/puzzlebot-ros.egg-link (link to .)
+[0.909s] Installing dead_reckoning script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros
+[0.909s] Installing distance_control script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros
+[0.909s] Installing goto_point script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros
+[0.909s] Installing kalman script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros
+[0.909s] Installing pwm_control script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros
+[0.909s] Installing velocity_control script to /home/leialc/manchester2_ws/install/puzzlebot_ros/lib/puzzlebot_ros
+[0.909s] 
+[0.909s] Installed /home/leialc/manchester2_ws/build/puzzlebot_ros
+[0.910s] running symlink_data
+[0.910s] creating /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index
+[0.910s] creating /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index/resource_index
+[0.910s] creating /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index/resource_index/packages
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/resource/puzzlebot_ros -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/ament_index/resource_index/packages
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/package.xml -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/micro_ros_agent.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/goto_deadreckoning.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/gazebo_box_world.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/aruco_gazebo.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/goto_kalman.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/gazebo_aruco_world.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.910s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/gazebo_empty_world.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.911s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/aruco_jetson.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.911s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/camera_jetson.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.911s] symbolically linking /home/leialc/manchester2_ws/build/puzzlebot_ros/launch/aruco_raspberry.launch.py -> /home/leialc/manchester2_ws/install/puzzlebot_ros/share/puzzlebot_ros
+[0.937s] Invoked command in '/home/leialc/manchester2_ws/build/puzzlebot_ros' returned '0': PYTHONPATH=/home/leialc/manchester2_ws/build/puzzlebot_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/leialc/manchester2_ws/install/puzzlebot_ros/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/leialc/manchester2_ws/build/puzzlebot_ros/build --no-deps symlink_data

@@ -1,0 +1,27 @@
+[1.040s] Invoking command in '/home/leialc/manchester2_ws/src/puzzlebot': PYTHONPATH=/home/leialc/manchester2_ws/build/puzzlebot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/leialc/manchester2_ws/install/puzzlebot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzlebot build --build-base /home/leialc/manchester2_ws/build/puzzlebot/build install --record /home/leialc/manchester2_ws/build/puzzlebot/install.log --single-version-externally-managed install_data
+[1.447s] running egg_info
+[1.448s] writing ../../build/puzzlebot/puzzlebot.egg-info/PKG-INFO
+[1.448s] writing dependency_links to ../../build/puzzlebot/puzzlebot.egg-info/dependency_links.txt
+[1.448s] writing entry points to ../../build/puzzlebot/puzzlebot.egg-info/entry_points.txt
+[1.448s] writing requirements to ../../build/puzzlebot/puzzlebot.egg-info/requires.txt
+[1.449s] writing top-level names to ../../build/puzzlebot/puzzlebot.egg-info/top_level.txt
+[1.451s] reading manifest file '../../build/puzzlebot/puzzlebot.egg-info/SOURCES.txt'
+[1.454s] writing manifest file '../../build/puzzlebot/puzzlebot.egg-info/SOURCES.txt'
+[1.454s] running build
+[1.454s] running build_py
+[1.455s] running install
+[1.456s] running install_lib
+[1.459s] running install_data
+[1.459s] running install_egg_info
+[1.463s] removing '/home/leialc/manchester2_ws/install/puzzlebot/lib/python3.10/site-packages/puzzlebot-0.0.0-py3.10.egg-info' (and everything under it)
+[1.463s] Copying ../../build/puzzlebot/puzzlebot.egg-info to /home/leialc/manchester2_ws/install/puzzlebot/lib/python3.10/site-packages/puzzlebot-0.0.0-py3.10.egg-info
+[1.465s] running install_scripts
+[1.505s] Installing controller script to /home/leialc/manchester2_ws/install/puzzlebot/lib/puzzlebot
+[1.505s] Installing path_publisher script to /home/leialc/manchester2_ws/install/puzzlebot/lib/puzzlebot
+[1.506s] Installing path_subscriber script to /home/leialc/manchester2_ws/install/puzzlebot/lib/puzzlebot
+[1.506s] Installing polygon_IMU script to /home/leialc/manchester2_ws/install/puzzlebot/lib/puzzlebot
+[1.506s] Installing polygon_publisher script to /home/leialc/manchester2_ws/install/puzzlebot/lib/puzzlebot
+[1.506s] Installing trayectory_2m script to /home/leialc/manchester2_ws/install/puzzlebot/lib/puzzlebot
+[1.506s] Installing trayectory_try script to /home/leialc/manchester2_ws/install/puzzlebot/lib/puzzlebot
+[1.507s] writing list of installed files to '/home/leialc/manchester2_ws/build/puzzlebot/install.log'
+[1.554s] Invoked command in '/home/leialc/manchester2_ws/src/puzzlebot' returned '0': PYTHONPATH=/home/leialc/manchester2_ws/build/puzzlebot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/leialc/manchester2_ws/install/puzzlebot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzlebot build --build-base /home/leialc/manchester2_ws/build/puzzlebot/build install --record /home/leialc/manchester2_ws/build/puzzlebot/install.log --single-version-externally-managed install_data
