@@ -18,4 +18,8 @@
 
 ## Week3  
 ### Actividades:  
-- Control de lazo cerrado  
+- Control de lazo cerrado a partir de Odometría
+
+### Retos:
+- Seguidor de cuadrado a partir de un path (control PID)
+- Seguidor de path a partir de waypoints (control P)
