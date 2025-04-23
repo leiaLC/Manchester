@@ -1,116 +1,146 @@
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Twist
-from my_custom_msgs.msg import PathPose
+from geometry_msgs.msg import Twist, PoseArray
 import numpy as np
 
 class PathFollower(Node):
     def __init__(self):
         super().__init__('path_follower')
 
-        self.subscription = self.create_subscription(PathPose, '/path', self.path_callback, 10)
+        self.subscription = self.create_subscription(PoseArray, '/path', self.path_callback, 10)
         self.cmd_vel_publisher = self.create_publisher(Twist, '/cmd_vel', 10)
 
-        self.queue = []
-        self.current_point = None
+        self.coordinates = []
+        self.last_path_hash = None
+        self.current_target_index = 0
 
-        # Estado actual del robot
+        # Estado del robot
         self.x_actual = 0.0
         self.y_actual = 0.0
         self.theta_actual = 0.0
 
-        # Límites de velocidades
-        self.max_linear_velocity = 0.2
-        self.max_angular_velocity = 1.5
+        # Control de movimiento
+        self.angular_velocity = 1.0  # constante
+        self.max_linear_velocity = 0.2  # límite superior
+        self.min_linear_velocity = 0.05
 
-        # Tolerancia angular
         self.angle_tolerance = 0.05
+        self.dist_tolerance = 0.05
 
-        # Timer para control
+        # Timer y tiempo
         self.timer_period = 0.1
         self.timer = self.create_timer(self.timer_period, self.control_loop)
 
-        # Variables de control
         self.start_time = None
-        self.turn_duration = None
         self.move_duration = None
-        self.state = "IDLE"
+        self.turn_duration = None
+        self.linear_velocity = 0.0  # se recalcula dinámicamente
+
+        self.state = 2  # STANDBY
+
+        self.MOVING = 0
+        self.TURNING = 1
+        self.STOPPED = 2
 
         self.get_logger().info('Nodo PathFollower iniciado.')
 
-    def path_callback(self, msg: PathPose):
-        self.queue.append(msg)
-        self.get_logger().info(f'Se añadió un nuevo punto a la cola: x={msg.pose.position.x}, y={msg.pose.position.y}')
+    def path_callback(self, msg):
+        current_coords = [[p.position.x, p.position.y] for p in msg.poses]
+        current_hash = hash(tuple(map(tuple, current_coords)))
+
+        if current_hash != self.last_path_hash:
+            self.coordinates = current_coords
+            self.last_path_hash = current_hash
+            self.current_target_index = 0
+            self.state = self.TURNING
+            self.get_logger().info(f'Nuevo path recibido con {len(self.coordinates)} puntos.')
+        else:
+            self.get_logger().debug('Path no ha cambiado.')
+
+    def calculate_distance_to_target(self, x, y):
+        return np.sqrt((x - self.x_actual) ** 2 + (y - self.y_actual) ** 2)
 
     def desired_angle(self, x, y):
-        dx = x - self.x_actual
-        dy = y - self.y_actual
-        return np.arctan2(dy, dx)
+        return np.arctan2(y - self.y_actual, x - self.x_actual)
 
     def normalize_angle(self, angle):
-        return np.arctan2(np.sin(angle), np.cos(angle))
+        while angle > np.pi:
+            angle -= 2.0 * np.pi
+        while angle < -np.pi:
+            angle += 2.0 * np.pi
+        return angle
 
     def control_loop(self):
-        if self.current_point is None:
-            if self.queue:
-                self.current_point = self.queue.pop(0)
-                self.state = "TURNING"
-                self.start_time = self.get_clock().now().nanoseconds / 1e9
+        if not self.coordinates or self.current_target_index >= len(self.coordinates):
+            self.publish_stop()
+            return
 
-                target_x = self.current_point.pose.position.x
-                target_y = self.current_point.pose.position.y
-
-                angle = self.desired_angle(target_x, target_y) - self.theta_actual
-                angle = self.normalize_angle(angle)
-                self.turn_duration = abs(angle) / np.clip(self.current_point.angular_velocity, 0.01, self.max_angular_velocity)
-
-                distance = np.sqrt((target_x - self.x_actual)**2 + (target_y - self.y_actual)**2)
-                self.move_duration = distance / np.clip(self.current_point.linear_velocity, 0.01, self.max_linear_velocity)
-
-                self.turn_direction = np.sign(angle)
-                self.linear_velocity = np.clip(self.current_point.linear_velocity, -self.max_linear_velocity, self.max_linear_velocity)
-                self.angular_velocity = np.clip(self.current_point.angular_velocity, -self.max_angular_velocity, self.max_angular_velocity)
-
-                self.get_logger().info(f'Nuevo objetivo: x={target_x}, y={target_y} → girar {angle:.2f} rad en {self.turn_duration:.2f}s, avanzar {distance:.2f}m en {self.move_duration:.2f}s')
-            else:
-                self.publish_stop()
-                return
-
-        current_time = self.get_clock().now().nanoseconds / 1e9
-        elapsed_time = current_time - self.start_time
-
+        target_x, target_y = self.coordinates[self.current_target_index]
         cmd_vel = Twist()
+        current_time = self.get_clock().now().nanoseconds / 1e9
 
-        if self.state == "TURNING":
-            if elapsed_time < self.turn_duration:
-                cmd_vel.angular.z = self.turn_direction * self.angular_velocity
+        if self.state == self.STOPPED:
+            self.current_target_index += 1
+            if self.current_target_index < len(self.coordinates):
+                self.state = self.TURNING
             else:
-                self.state = "MOVING"
+                self.get_logger().info("Path completado.")
+            return
+
+        elif self.state == self.TURNING:
+            target_angle = self.desired_angle(target_x, target_y)
+            angle_error = self.normalize_angle(target_angle - self.theta_actual)
+
+            if abs(angle_error) < self.angle_tolerance:
                 self.start_time = current_time
-                self.get_logger().info("Giro completado. Comenzando avance.")
+                distance = self.calculate_distance_to_target(target_x, target_y)
 
-        elif self.state == "MOVING":
-            if elapsed_time < self.move_duration:
-                cmd_vel.linear.x = self.linear_velocity
+                # Definir un tiempo deseado (por ejemplo 5s para cualquier punto a máxima distancia)
+                tiempo_deseado = max(1.0, min(5.0, distance / self.min_linear_velocity))
+                self.move_duration = tiempo_deseado
+                self.linear_velocity = distance / tiempo_deseado
+
+                # Limitar velocidad lineal
+                self.linear_velocity = min(self.linear_velocity, self.max_linear_velocity)
+
+                self.state = self.MOVING
+                cmd_vel.angular.z = 0.0
             else:
-                self.get_logger().info(f'Punto alcanzado: x={self.current_point.pose.position.x}, y={self.current_point.pose.position.y}')
-                # Actualiza pose simulada como si se hubiera llegado exactamente al punto
-                self.x_actual = self.current_point.pose.position.x
-                self.y_actual = self.current_point.pose.position.y
-                self.theta_actual += self.turn_direction * self.angular_velocity * self.turn_duration
-                self.theta_actual = self.normalize_angle(self.theta_actual)
+                cmd_vel.angular.z = self.angular_velocity if angle_error > 0 else -self.angular_velocity
 
-                self.current_point = None
-                self.state = "IDLE"
-                self.publish_stop()
-                return
+        elif self.state == self.MOVING:
+            distance = self.calculate_distance_to_target(target_x, target_y)
 
+            if distance < self.dist_tolerance:
+                self.state = self.STOPPED
+                cmd_vel.linear.x = 0.0
+                self.get_logger().info(f"Punto {self.current_target_index} alcanzado.")
+            else:
+                elapsed_time = current_time - self.start_time
+                if elapsed_time < self.move_duration:
+                    cmd_vel.linear.x = self.linear_velocity
+                else:
+                    # Tiempo agotado, frenar y asumir que llegamos al punto
+                    cmd_vel.linear.x = 0.0
+                    self.state = self.STOPPED
+                    self.get_logger().info(f"Punto {self.current_target_index} alcanzado por tiempo límite.")
+
+                # Corrección de ángulo durante movimiento
+                target_angle = self.desired_angle(target_x, target_y)
+                angle_error = self.normalize_angle(target_angle - self.theta_actual)
+                cmd_vel.angular.z = 0.5 * angle_error  # proporcional
+
+        # Publicar y actualizar pose simulada
         self.cmd_vel_publisher.publish(cmd_vel)
+        dt = self.timer_period
+        self.x_actual += cmd_vel.linear.x * np.cos(self.theta_actual) * dt
+        self.y_actual += cmd_vel.linear.x * np.sin(self.theta_actual) * dt
+        self.theta_actual += cmd_vel.angular.z * dt
+        self.theta_actual = self.normalize_angle(self.theta_actual)
 
     def publish_stop(self):
         cmd_vel = Twist()
         self.cmd_vel_publisher.publish(cmd_vel)
-
 
 def main(args=None):
     rclpy.init(args=args)

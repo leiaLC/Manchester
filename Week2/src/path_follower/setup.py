@@ -22,10 +22,7 @@ setup(
         'console_scripts': [
             'polygon_publisher = path_follower.polygon_publisher:main',
             'polygon_imu = path_follower.Polygon_IMU:main',
-            'path_pub = path_follower.path_publisher:main',
-            'controller = path_follower.controller:main',
-            "localisation = path_follower.localisation:main",
-            'closed_loop_controller = path_follower.closed_loop_controller:main'
+            'path_pub = path_follower.path_publisher:main'
         ],
     },
 )
